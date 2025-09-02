@@ -55,11 +55,28 @@ st.markdown("""
         border-radius: 10px;
         margin: 5px 0;
         text-align: center;
+        height: 38px;
+        margin-top: 0;
     }
     
     .stTextInput > div > div > input {
         text-align: center;
         border-radius: 10px;
+        height: 38px;
+    }
+    
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .search-input {
+        flex: 1;
+    }
+    
+    .search-button {
+        flex-shrink: 0;
     }
     
     .stSelectbox > div > div > div {
@@ -109,6 +126,16 @@ st.markdown("""
     .page-subtitle {
         text-align: center !important;
         margin-bottom: 1rem !important;
+    }
+    
+    .center-text {
+        text-align: center !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .page-subtitle.center-text {
+        text-align: center !important;
+        margin: 1rem 0 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -305,8 +332,8 @@ def main():
         st.markdown("---")
         
         # Recommendation section - better centered layout
-        st.markdown("### 🎯 Tell Us What You Love, We'll Show You More!")
-        st.markdown('<p class="page-subtitle"><em>Like a wise film critic who knows your taste better than you do!</em> 🧠✨</p>', unsafe_allow_html=True)
+        st.markdown('<h3 class="center-text">🎯 Tell Us What You Love, We\'ll Show You More!</h3>', unsafe_allow_html=True)
+        st.markdown('<p class="page-subtitle center-text"><em>Like a wise film critic who knows your taste better than you do!</em> 🧠✨</p>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         # Center the input section
@@ -318,7 +345,7 @@ def main():
             else:
                 default_movie = ""
             
-            # Create a row for input and search button
+            # Create a row for input and search button with better alignment
             input_col, button_col = st.columns([4, 1])
             
             with input_col:
@@ -330,18 +357,20 @@ def main():
                 )
             
             with button_col:
+                st.markdown("<div style='margin-top: 25px;'>", unsafe_allow_html=True)
                 if st.button("🔍", help="Search for recommendations", key="search_button"):
                     if movie_input.strip():
                         st.session_state.movie_input = movie_input.strip()
                         st.rerun()
                     else:
                         st.warning("Please enter a movie title first!")
+                st.markdown("</div>", unsafe_allow_html=True)
         
         st.markdown("<br>", unsafe_allow_html=True)
         
         # Settings section - centered
-        st.markdown("### ⚙️ Fine-Tune Your Movie Experience")
-        st.markdown('<p class="page-subtitle"><em>Make it perfect, just like your favorite director!</em> 🎬🎯</p>', unsafe_allow_html=True)
+        st.markdown('<h3 class="center-text">⚙️ Fine-Tune Your Movie Experience</h3>', unsafe_allow_html=True)
+        st.markdown('<p class="page-subtitle center-text"><em>Make it perfect, just like your favorite director!</em> 🎬🎯</p>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         # Center the settings
@@ -385,8 +414,8 @@ def main():
                 st.error(f"No movies found matching '{movie_input}'")
         
         # Popular movies suggestions
-        st.markdown("### 💡 Can't Decide? Start With These Blockbusters!")
-        st.markdown('<p class="page-subtitle"><em>Handpicked by our AI for guaranteed entertainment!</em> 🎭🔥</p>', unsafe_allow_html=True)
+        st.markdown('<h3 class="center-text">💡 Can't Decide? Start With These Blockbusters!</h3>', unsafe_allow_html=True)
+        st.markdown('<p class="page-subtitle center-text"><em>Handpicked by our AI for guaranteed entertainment!</em> 🎭🔥</p>', unsafe_allow_html=True)
         popular_movies = [
             ("The Dark Knight", "Action|Crime|Drama"),
             ("Inception", "Action|Adventure|Sci-Fi"),
@@ -456,8 +485,8 @@ def main():
         selected_genre = st.selectbox("Choose a genre to explore:", options=top_genres)
         
         if selected_genre:
-            st.markdown(f"### 🎬 **{selected_genre} Universe Awaits!**")
-            st.markdown(f'<p class="page-subtitle"><em>Dive into the world of {selected_genre} magic!</em> 🌟</p>', unsafe_allow_html=True)
+                    st.markdown(f'<h3 class="center-text">🎬 **{selected_genre} Universe Awaits!**</h3>', unsafe_allow_html=True)
+        st.markdown(f'<p class="page-subtitle center-text"><em>Dive into the world of {selected_genre} magic!</em> 🌟</p>', unsafe_allow_html=True)
             genre_movies = recommender.get_movies_by_genre(selected_genre, n_movies=20)
             
             if genre_movies:
@@ -495,8 +524,8 @@ def main():
                 results = recommender.search_movies(search_query, n_results=20)
             
             if results:
-                st.markdown(f"### 📋 **Search Results for '{search_query}'**")
-                st.markdown(f'<p class="page-subtitle"><em>Found {len(results)} movies that match your curiosity!</em> 🔍✨</p>', unsafe_allow_html=True)
+                st.markdown(f'<h3 class="center-text">📋 **Search Results for \'{search_query}\'**</h3>', unsafe_allow_html=True)
+                st.markdown(f'<p class="page-subtitle center-text"><em>Found {len(results)} movies that match your curiosity!</em> 🔍✨</p>', unsafe_allow_html=True)
                 for title, genres, avg_rating, rating_count in results:
                     with st.container():
                         st.markdown(f"""
@@ -524,8 +553,8 @@ def main():
         )
         
         if top_movies:
-            st.markdown(f"### 🏆 **{len(top_movies)} Masterpieces That Define Cinema**")
-            st.markdown('<p class="page-subtitle"><em>These aren\'t just movies, they\'re experiences!</em> 🎭✨</p>', unsafe_allow_html=True)
+            st.markdown(f'<h3 class="center-text">🏆 **{len(top_movies)} Masterpieces That Define Cinema**</h3>', unsafe_allow_html=True)
+            st.markdown('<p class="page-subtitle center-text"><em>These aren\'t just movies, they\'re experiences!</em> 🎭✨</p>', unsafe_allow_html=True)
             for i, (title, genres, avg_rating, rating_count) in enumerate(top_movies, 1):
                 with st.container():
                     st.markdown(f"""
