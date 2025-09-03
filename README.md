@@ -1,4 +1,4 @@
-# 🎬 Movie Recommendation System
+# 🎬 Chalchitra-AI
 
 ## 📋 Project Overview
 This is a comprehensive movie recommendation system that leverages machine learning to suggest similar movies to users based on their preferences. The application uses **Content-Based Filtering** with TF-IDF vectorization and cosine similarity to provide accurate, personalized movie recommendations.
