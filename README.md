@@ -1,8 +1,8 @@
-# 🎬 Chalchitra-AI
+# 🎬 Chalchitra-AI 
 
 ## 📋 Project Overview
 This is a comprehensive movie recommendation system that leverages machine learning to suggest similar movies to users based on their preferences. The application uses **Content-Based Filtering** with TF-IDF vectorization and cosine similarity to provide accurate, personalized movie recommendations.
-
+###URL-https://chalchitra-ai-8kmapl2gyucilnszy2klne.streamlit.app/
 ### 🎯 What This System Does
 - **Smart Recommendations**: Analyzes movie genres, titles, and user ratings to find similar movies
 - **Interactive Interface**: Beautiful, responsive web application built with Streamlit
