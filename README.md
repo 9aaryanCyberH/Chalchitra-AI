@@ -290,6 +290,8 @@ The system employs a sophisticated **Content-Based Filtering** algorithm that an
 ## 📸 Screenshots & Demo
 <img width="1916" height="1006" alt="Screenshot 2025-09-03 062657" src="https://github.com/user-attachments/assets/41ba1c52-4406-4962-bbb8-06584b4516b4" />
 <img width="1919" height="1031" alt="Screenshot 2025-09-03 062725" src="https://github.com/user-attachments/assets/8e46acae-1611-49b0-b0ca-c5aee8834061" />
+<img width="1919" height="1088" alt="Screenshot 2025-09-03 070059" src="https://github.com/user-attachments/assets/e612456c-6718-4f92-8f6b-551ffa779912" />
+<img width="1919" height="1095" alt="Screenshot 2025-09-03 070140" src="https://github.com/user-attachments/assets/2125ac08-8e52-4b83-88c0-cf233caf2165" />
 
 ### 🎬 Application Interface
 - **Main Dashboard**: Clean, modern interface with movie input and recommendations
